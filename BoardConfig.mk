@@ -137,14 +137,12 @@ TW_INCLUDE_LIBRESETPROP :=true
 			     
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
-ifeq ($(TW_DEVICE_VERSION),)
-TW_DEVICE_VERSION=12.0
-endif
+TW_DEVICE_VERSION=Xiaomi 10 A12.0
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_ENCRYPTED_BACKUPS := false
-TW_EXTRA_LANGUAGES := true
+TW_EXTRA_LANGUAGES := false
 TW_INCLUDE_NTFS_3G := true
 TW_NO_EXFAT_FUSE := true
 TW_USE_TOOLBOX := true
@@ -152,21 +150,23 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 ifeq ($(TW_DEFAULT_LANGUAGE),)
-TW_DEFAULT_LANGUAGE := zh_CN
+TW_DEFAULT_LANGUAGE := ru
 endif
 TW_DEFAULT_BRIGHTNESS := 300
-ifneq ($(PRODUCT_RELEASE_NAME),lmi)
-TW_Y_OFFSET := 88
-TW_H_OFFSET := -88
-endif
+TW_Y_OFFSET := 90
+TW_H_OFFSET := -90
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_NO_SCREEN_BLANK := true
 PLATFORM_VERSION := 12
 TW_HAS_EDL_MODE := false
 TW_SUPPORT_INPUT_AIDL_HAPTICS :=true
-
 ALLOW_MISSING_DEPENDENCIES := true
+TW_EXCLUDE_APEX := true
+TW_INCLUDE_PYTHON := true
+
+# The path to a temperature sensor
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone19/temp"
 
 #BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
 #--prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
